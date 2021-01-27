@@ -1,0 +1,23 @@
+{
+  "name": "l2-online-shop",
+  "version": "0.1.0",
+  "description": "Online shop",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Masha34/node-online-shop.git"
+  },
+  "author": "Savchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Masha34/node-online-shop/issues"
+  },
+  "homepage": "https://github.com/Masha34/node-online-shop#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
