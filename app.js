@@ -1,4 +1,5 @@
- const express = require("express")
+ const express = require("express");
+ const path = require("path");
 //  console.log(express)
 
 // Підключаємо shop routes
@@ -7,30 +8,14 @@
  const PORT = 8000;
  const app = express();
 
+ //підключаємо шаблонізатор ejs
+ app.set("view engine", "ejs")
+ app.set("views", "views")
+
+ //вказуємо де будуть зберігатися статистичні файли
+ app.use(express.static(path.join(__dirname,"static")));
+
+ //Use midlleware
 app.use(shopRoutes);
-//  app.use("/vacancies", (req, res, next) => {
-//     res.send("<h1>Vacancies page</h1>")
-//  });
-
-//  app.use("/careers", (req, res, next) => {
-//     res.send("<h1>Careers page</h1>")
-//  });
-
-//  app.use("/contact", (req, res, next) => {
-//     res.send("<h1>Contact page</h1>")
-//  });
-
-//  app.use("/resources", (req, res, next) => {
-//     res.send("<h1>Resources page</h1>")
-//  });
-
-//  app.use("/about", (req, res, next) => {
-//     res.send("<h1>About page</h1>")
-//  });
-
-//  app.use("/", (req, res, next) => {
-//     //  console.log("Request =>", req)
-//     res.send("<h1>Home page</h1>")
-//  });
 
  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
