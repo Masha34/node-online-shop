@@ -4,6 +4,7 @@
 
 // Підключаємо shop routes
  const shopRoutes = require("./routes/shopRoutes");
+ const errorController = require("./controllers/errorController");
 
  const PORT = 8000;
  const app = express();
@@ -17,5 +18,7 @@
 
  //Use midlleware
 app.use(shopRoutes);
+
+app.use(errorController.get404);
 
  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

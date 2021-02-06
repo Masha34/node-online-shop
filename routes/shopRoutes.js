@@ -1,5 +1,5 @@
 const { getHomePage, getCategoryPage, getSingleProductPage, getCheckoutPage, getConfirmationPage, getCartPage, getBlogPage, getSingleBlogPage, getLoginPage, getRegisterPage, getTrackingOrderPage, getContactPage } = require("../controllers/shopController")
-
+// get404
 const express = require("express");
 const router = express.Router();
 
@@ -24,6 +24,8 @@ router.get("/tracking-order", getTrackingOrderPage);
 
 
 router.get("/contact", getContactPage);
+
+// router.get("*", get404);
 
 
 module.exports = router;

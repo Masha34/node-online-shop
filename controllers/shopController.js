@@ -39,3 +39,8 @@ exports.getTrackingOrderPage = (req, res, next) => {
 exports.getContactPage = (req, res, next) => {
     res.render("pages/contact")
 }
+
+
+// exports.get404 = (req, res, next) => {
+//     res.status(404).render("pages/404")
+// };
