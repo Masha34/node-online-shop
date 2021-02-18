@@ -1,9 +1,19 @@
+const Product = require("../models/product")
+
 exports.getHomePage = (req, res, next) => {
         res.render("pages/index")
 }
 
 exports.getCategoryPage = (req, res, next) => {
-    res.render("pages/category")
+    // Product.fetchAll()
+    Product.findAll()
+    .then((products) => {
+        // console.log("Data from DB ", rows)
+        res.render("pages/category",{
+            products: products
+        });
+    })
+    .catch(err => console.log(err));
 }
 exports.getSingleProductPage = (req, res, next) => {
     res.render("pages/single-product")
