@@ -1,5 +1,6 @@
  const express = require("express");
  const path = require("path");
+ const bodyParser = require("body-parser");
 //  console.log(express)
 
 // Підключаємо shop routes
@@ -12,6 +13,7 @@
  //підключаємо шаблонізатор ejs
  app.set("view engine", "ejs")
  app.set("views", "views")
+ app.use(bodyParser.urlencoded({extended:false}));
 
  //вказуємо де будуть зберігатися статистичні файли
  app.use(express.static(path.join(__dirname,"static")));

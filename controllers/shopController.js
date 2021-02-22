@@ -50,7 +50,43 @@ exports.getContactPage = (req, res, next) => {
     res.render("pages/contact")
 }
 
+exports.getProduct = (req, res, next) => {
+    // console.log(req.params);
+    // console.log(req.params.productId);
+    const productId = req.params.productId;
+    Product.findByPk(productId)
+    .then((product) => {
+        // console.log(product)
+        res.render("pages/single-product", {
+            product: product
+        })
+    })
+    .catch(err => console.log(err))
+}
 
+exports.getNewProductPage = (req, res, next) => {
+    res.render("pages/addNewProduct.ejs")
+}
+
+exports.postNewProductPage = (req, res, next) => {
+    console.log(req.body)
+     const title = req.body.title;
+     const price = req.body.price;
+     const image = req.body.image;
+     const description = req.body.description;
+
+     Product.create({
+         title: title,
+         price: price,
+         image: image,
+         description: description
+     })
+     .then((result) => {
+         console.log("Product created");
+         return res.redirect("/category")
+     })
+     .catch(err => console.log(err));
+}
 // exports.get404 = (req, res, next) => {
 //     res.status(404).render("pages/404")
 // };

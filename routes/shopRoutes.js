@@ -1,5 +1,8 @@
-const { getHomePage, getCategoryPage, getSingleProductPage, getCheckoutPage, getConfirmationPage, getCartPage, getBlogPage, getSingleBlogPage, getLoginPage, getRegisterPage, getTrackingOrderPage, getContactPage } = require("../controllers/shopController")
+// const { getHomePage, getCategoryPage, getSingleProductPage, getCheckoutPage, getConfirmationPage, getCartPage, getBlogPage, getSingleBlogPage, getLoginPage, getRegisterPage, getTrackingOrderPage, getContactPage, getProduct, getNewProductPage } = require("../controllers/shopController")
 // get404
+// те ж саме що зверху
+const shopController = require("../controllers/shopController")
+
 const express = require("express");
 const router = express.Router();
 
@@ -7,23 +10,28 @@ const router = express.Router();
 //     res.send("<h1>Home page</h1>")getSingleBlogPage
 // });
 // теж саме знизу
-router.get("/", getHomePage);
+router.get("/", shopController.getHomePage);
 
-router.get("/category", getCategoryPage);
-router.get("/single-product", getSingleProductPage);
-router.get("/checkout", getCheckoutPage);
-router.get("/confirmation", getConfirmationPage);
-router.get("/cart", getCartPage);
+router.get("/category", shopController.getCategoryPage);
+router.get("/single-product", shopController.getSingleProductPage);
+router.get("/checkout", shopController.getCheckoutPage);
+router.get("/confirmation", shopController.getConfirmationPage);
+router.get("/cart", shopController.getCartPage);
 
-router.get("/blog", getBlogPage);
-router.get("/single-blog", getSingleBlogPage);
+router.get("/blog", shopController.getBlogPage);
+router.get("/single-blog", shopController.getSingleBlogPage);
 
-router.get("/login", getLoginPage);
-router.get("/register", getRegisterPage);
-router.get("/tracking-order", getTrackingOrderPage);
+router.get("/login", shopController.getLoginPage);
+router.get("/register", shopController.getRegisterPage);
+router.get("/tracking-order", shopController.getTrackingOrderPage);
 
 
-router.get("/contact", getContactPage);
+router.get("/contact", shopController.getContactPage);
+
+router.get("/products/:productId", shopController.getProduct);
+router.get("/add-product", shopController.getNewProductPage);
+
+router.post("/add-product", shopController.postNewProductPage);
 
 // router.get("*", get404);
 
