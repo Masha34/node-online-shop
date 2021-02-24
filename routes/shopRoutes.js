@@ -33,6 +33,10 @@ router.get("/add-product", shopController.getNewProductPage);
 
 router.post("/add-product", shopController.postNewProductPage);
 
+// router.get("/products_delete/:id", shopController.getProductDelete);
+// router.get("/products_edit/:id", shopController.getProductEdit);
+// router.post('/product_editConfirm/:id', shopController.postEditConfirm);
+
 // router.get("*", get404);
 
 

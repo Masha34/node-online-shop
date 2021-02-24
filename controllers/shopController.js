@@ -87,6 +87,65 @@ exports.postNewProductPage = (req, res, next) => {
      })
      .catch(err => console.log(err));
 }
+
+// exports.getProductDelete = (req,res,next) => {
+//     console.log('Delete Course');
+//     const id = req.params.id;    
+//     Product.destroy(
+//           {
+//             where: {
+//               id: id
+//             }
+//             // force: true
+//           }
+//     ).then((product)=>{           
+//         return res.redirect('/category');
+//     })
+//     .catch((err) => console.log(err));
+// }
+
+// exports.getProductEdit= (req, res, next) => {
+//     // console.log('adminEditProduct');
+//     const id = req.params.id;
+//     Product.findByPk(id)
+//    .then((product) => {      
+//         res.render('pages/edit_product',{
+//          product: product,
+//         //  id:id,
+//          //path:'/products_edit/',
+//        });
+//    })
+//    .catch((err) => console.log(err));  
+// };
+
+// exports.postEditConfirm = (req,res,next) =>{
+//     console.log('EditConfirm');
+//     const id = req.params.id;
+//     const title = req.body.title;
+//     const price = req.body.price; 
+//     const image = req.body.image;
+//     const description = req.body.description;
+   
+//     Product.update({
+//         title:title,
+//         price:price,
+//         image:image,
+//         description:description,
+//     },
+//     {
+//         where: {
+//           id: id
+//         }
+//     }
+//     ).then(result =>{
+//         //console.log('add product result =>',result);
+//         console.log('product updated');
+//         res.redirect('/category');
+//     })
+//     .catch(err => console.log(err));
+// }
+
+
 // exports.get404 = (req, res, next) => {
 //     res.status(404).render("pages/404")
 // };
